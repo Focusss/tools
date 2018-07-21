@@ -1,0 +1,54 @@
+*{
+	font-size:12px;
+}
+body {
+    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;
+    padding:20px;
+    font-size:13px;
+    margin:0;
+}
+h2 {
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+.demo-info{
+	background:#FFFEE6;
+	color:#8F5700;
+	padding:12px;
+}
+.demo-tip{
+	width:16px;
+	height:16px;
+	margin-right:8px;
+	float:left;
+}
+.QQbox {
+  Z-INDEX: 99;
+  right: 170px;
+  WIDTH: 200px;
+  POSITION: absolute;
+  TOP: 40px;
+  display: block;
+}
+.infobox{border-bottom:1px solid #eee;padding-bottom:5px; text-align:center;}
+.Qlist{background:#ffffff;padding:10px;  border: 1px solid rgba(26,53,71,.12);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(26,53,71,.1);}
+.Qlist .con UL LI {
+  PADDING-RIGHT: 5px;
+  PADDING-LEFT: 15px;
+  PADDING-BOTTOM: 5px;
+  PADDING-TOP: 5px;
+  text-align: left;
+}
+.QQbox::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: calc(50% - 0px);
+  width: 13px;
+  height: 7px;
+  background: url(icons/dropdown-menu-arrow.svg);
+}

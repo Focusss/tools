@@ -1,0 +1,35 @@
+.icon-excel{
+	background:url('../images/excel.jpg') no-repeat center center;
+}
+
+.icon-edit{
+	background:url('../images/edit.png') no-repeat center center;
+}
+
+.icon-remove{
+	background:url('../images/delete.png') no-repeat center center;
+}
+
+.icon-filter{
+	background:url('../images/filter.png') no-repeat center center;
+}
+
+.icon-logout{
+	background:url('../images/logout.png') no-repeat center center;
+}
+
+.icon-window{
+	background:url('../images/grid.gif') no-repeat center center;
+}
+
+.icon-menu{
+	background:url('../images/menu.png') no-repeat center center;
+}
+
+.icon-user{
+	background:url('../images/user.png') no-repeat center center;
+}
+
+.icon-fullScreen{
+	background:url('../images/fullScreen.png') no-repeat center center;
+}

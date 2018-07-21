@@ -1,0 +1,140 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-size:14px;
+}
+td img {
+	display: block;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.clear{
+	clear:both;
+}
+.login_header{
+	width:100%;
+	position:relative;
+	/*padding:30px 0px 20px 0px;*/
+}
+.login_header p{
+	right:5%;
+	bottom:15%;
+	color:#989898;
+	position:absolute;
+}
+.login_header a{
+	color:#989898;
+	text-decoration:none;
+}
+.login_header img{
+	margin-left:10%;
+	padding:10px 0px 11px;
+}
+.login_central{
+	width:100%;
+	height:485px;
+	position:relative;
+	background-size:auto;
+	background:url(../images/new_logn.png) center no-repeat;
+}
+.login_bottom{
+	color:#989898;
+	overflow:auto;
+	z-index:1;
+	font-size:14px;
+	display:block;
+	padding:2% 5% 3% 3%;
+}
+.login_bottom_copyright{
+}
+.logn_frame{
+	width:320px;
+	position:absolute;
+	top:30px;
+	right:190px;
+	padding-top:5px;
+	border:1px solid #DDDDDD;
+	background:url(../images/logo_bg.png) repeat;
+}
+.logn_frame a{
+	padding-top:13px;
+	color:#4C4847;
+}
+.logn_frame a:hover{
+	color:#F00;
+} 
+.login_wechat{
+	background:url(../images/logo_bg02.png) repeat;
+	margin-top:30px;
+	padding:15px 10px 15px 35px;
+	margin-bottom:15px;
+}
+.login_wechat span{
+	display:block;
+	position:relative;
+}
+.login_wechat span p{
+	width:170px;
+	color:#898989;
+	margin-top:30px;
+}
+.logn_btn{
+	width:269px;
+	height:33px;
+	border:0px;
+	margin-left:2px;
+	background:#ccc url(../images/logn_btn.png) center no-repeat;
+	cursor:pointer;
+}
+.table_logn{
+	margin-top:30px;
+	margin-left:25px;
+}
+.input_name{
+	width:265px;
+	padding:10px 0px 8px 0px;
+	padding-left:5px;
+	font-size:14px;
+	border:1px solid #99999B;
+	background:#fff;
+	/*color:#ccc;*/
+	margin-bottom:30px;
+}
+.input_name_captchaCode{
+	width:135px;
+	padding:10px 0px 8px 0px;
+	padding-left:5px;
+	font-size:14px;
+	border:1px solid #99999B;
+	background:#fff;
+	/*color:#ccc;*/
+	margin-bottom:30px;
+}
+.img_captchaCode{
+    float:right; 	
+}
+input[type="text"]:focus {
+	border:1px solid #3A97D8;
+  /* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
+}
+.placeholder{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	color : #BBB;
+	font-size : 14px;
+	left : 20px;
+	position : absolute;
+	text-indent : 10px;
+	top : 133px;
+	vertical-align : middle;
+	visibility : visible;
+	
+}

@@ -1,0 +1,557 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{ 
+	margin:0;
+	padding:0;
+	font-size:12px;
+	font-family:"宋体","arial";
+	font-size-adjust:none;
+	line-height:150%;
+}
+form,ul,li,p,h1,h2,h3,h4,h5,h6{ 
+	margin:0px;
+	padding:0px;
+}
+img,a img{
+	border:0px;
+}
+ul,li{
+	list-style-type:none;
+}
+thead {
+    display: table-header-group;
+}
+tr,img {
+    page-break-inside: avoid;
+}
+img{
+    max-width: 100% !important;
+	vertical-align:middle;
+}
+@page{
+    margin: 0.5cm;
+}
+p,h2,h3 {
+    orphans: 3;
+    widows: 3;
+}
+h2,h3{
+    page-break-after: avoid;
+}
+a:link{
+	font-size:12px;
+	color:#000;
+	text-decoration:none; 
+	cursor:pointer 
+}
+a:visited{
+	font-size:12px;
+	color:#000;
+	text-decoration:none; 
+	cursor:pointer 
+}
+a:hover{
+	font-size:12px;
+	color:#e1510b;
+	text-decoration:none; 
+	cursor:pointer 
+}
+a:active{
+	font-size:12px;
+	color:#000000;
+	text-decoration:none; 
+	cursor:pointer; 
+}
+.textunderline,a.textunderline{ 
+	text-decoration:underline
+}
+a.textred{
+	color:#f00;
+}
+.fontbold{ 
+	font-weight:bold;
+}
+.yellow{
+	color:#e47000;
+}
+.red,a.red{
+	color:#f00;
+}
+.green{
+	color:#3e8831;
+}
+.white{ 
+	color:#fff;
+}
+.black{ 
+	color:#000;
+}
+.blue,a.blue{ 
+	color:#0a80e0;
+}
+.font_size{ 
+	font-size:12px;
+}
+.right,a.right{ 
+	float:right;
+}
+.left,a.left{ 
+	float:left;
+}
+.ellipsis{
+	word-break:keep-all;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.clear{ clear:both;}
+.overflow_hidden{ overflow:hidden;}
+/*******tags***********/
+.public_tags{
+}
+#tags {
+	margin:0px 0px 0px 0px; 
+	width:100%; 
+	padding-top:3px;
+	height:26px;
+	background:#DBEDFC url(../images/information_title_bj.png) top repeat-x;
+}
+#tags li {
+	background:url(../images/tagleft.jpg) no-repeat left bottom; 
+	float:left; 
+	margin-right:1px; 
+	list-style-type:none; 
+	height:26px;
+}
+#tags li a {
+	padding-right:10px; 
+	padding-left:10px; 
+	background:url(../images/tagright.jpg) no-repeat right bottom; 
+	float: left;
+	padding-bottom:0px; 
+	color: #666;
+	line-height:26px; 
+	padding-top:0px; 
+	height:26px; 
+	text-decoration: none;
+}
+#tags li.emptyTag {
+	background: none transparent scroll repeat 0% 0%; 
+	width: 4px;
+}
+#tags li.selectTag {
+	background-position:left top; 
+	margin-bottom: -2px; 
+	position: relative; 
+	height:26px;
+}
+#tags li.selectTag a {
+	background-position:right top; 
+	color: #000; 
+	line-height:25px; 
+	height:26px;
+}
+#tagContent {
+	border-top: #aecbd4 1px solid;
+
+}
+.tagContent {
+	padding-right: 10px;
+	display: none;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	color: #474747;
+	padding-top: 10px;
+}
+#tagContent DIV.selectTag {
+	display:block
+}
+/*******title***********/
+.information_title{
+	padding:3px 0px 0px 0px; 
+	height:25px;
+	line-height:25px;
+	background:#DBEDFC url(../images/information_title_bj.png) top repeat-x;
+	font-weight:bold;
+	border-bottom:1px solid #A9C9DF;
+	border-top:1px solid #A9C9DF;
+}
+.information_title img{
+	margin:0px 5px 3px 5px;
+}
+.content_title{ 
+	position:relative;
+	margin-bottom:20px;
+	display:block;
+}
+.content_title hr{ 
+	padding-top:10px; 
+	border:0px;
+	border-bottom:1px dotted #A9C9DF;
+}
+.content_title_img{ 
+	width:auto; 
+	background:#FFF url(../images/title_icon.png) left no-repeat;  
+	position:absolute;
+	top:2px;
+	
+}
+.content_title_img span{
+	margin:0px 5px 0px 20px;
+	font-weight:bold;
+	}
+/*******table_info***********/
+table.table_info{
+	width:100%;
+	font-size:12px;
+	border-collapse:collapse;
+	border-bottom:1px solid #BBDAE6;
+	color:#000;border-top:0px;
+}
+table.table_info th{
+	background:#F8FBFE;
+	padding:4px;
+	border:1px dotted #BBDAE6;
+}
+table.table_info td{
+	padding:4px;
+	border:1px dotted #BBDAE6;
+}
+.table_info th{
+	padding:3px 4px;
+	border:1px solid #BBDAE6;
+	background:url(images/information_title_bj.png) bottom repeat-x;
+	font-weight:500;
+}
+table.table_info img{
+	margin:0px 3px -3px 3px;
+}
+.table_info_bg{
+	background:#F8FBFE;text-align:right;
+}
+.table_info_title{
+	background:#F8FBFE;
+}
+table.table_info td:hover,table.table_info td.altrow{
+	background-color:#FFFBE8;
+}
+.table_info p{
+	font-size:12px;
+	line-height:25px;
+	padding:5px;
+}
+.required{ margin-left:5px; color:#F00;}
+/*******table dotted_line***********/
+table.dotted_line{
+	width:100%;
+	font-size:12px;
+	border-collapse:collapse;
+}
+table.dotted_line td{
+	border-bottom:1px dotted #ccc;
+	padding:4px 0px;
+}
+/*******table dottedAdd_line***********/
+table.dottedAdd_line{
+	width:100%;
+	border-collapse:collapse;
+	color:#000;
+}
+table.dottedAdd_line td{
+	padding:4px 4px;
+	border:1px dotted #BBDAE6;
+}
+table.dottedAdd_line td:hover, table.dottedAdd_line td.altrow{ 
+	background-color:#fffdec; /* 动态变色 */
+}
+/*******table***********/
+table.table_search{
+
+	border-collapse:collapse;
+	color:#000;
+}
+table.table_search td{
+	padding:6px 4px;
+	border:0px;
+}
+/*******window_layout***********/
+.box{
+	padding-bottom:30px;
+}
+#bom {  
+    position:fixed;  
+    left:0px;  
+    bottom:0;  
+    _position:absolute;  
+    _top:expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);
+	padding: 3px 0px;
+	width: 100%;
+	background: #E1F0F7;
+	border-top: 1px solid #95B8E7;
+	z-index: 800;
+	text-align: center;}
+.wrap{
+	padding:5px 10px;
+}
+.container{
+	 padding:5px 0px;
+}
+/*******form_Controls***********/
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+/*select,*/
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+ 	display: inline-block;
+ 	padding:3px 0px 2px 0px; 
+	border:1px solid #7B9EBD; 	
+ 	vertical-align: middle;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+	background:#fff url(images/input_text_bg.png) repeat-x;
+	border:1px solid #7B9EBD;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+	border:1px solid #B2995B;
+  /* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+input[type="radio"],
+input[type="checkbox"] {
+	margin: 4px 0 0;
+	margin-top: 1px \9;
+	*margin-top: 0;
+	line-height: normal;
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+	width: auto;
+}
+select,
+input[type="file"] {
+  height:22px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height:22px;
+  border: 1px solid #7B9EBD;
+}
+select[multiple],
+select[size] {
+  height: auto;
+}
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+	outline: thin solid #7B9EBD;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+input[type="button"],input[type="reset"]{
+	padding:3px 5px 2px 5px;
+	margin:0px 3px;
+	border:#7B9EBD 1px solid;
+	color: #000;
+	color:#000;
+	background:#D5D6E3 url(images/input_btn_bg.png) repeat-x;
+} 
+/*
+textarea {
+	border:#7B9EBD 1px solid;
+	color: #000;
+	background:#FFF;
+}
+select{
+	height:22px;
+	line-height:22px;
+}
+*/
+.input_file{
+	height:22px;
+	line-height:22px;
+}
+.checkbox_width{
+	width:80px;
+	display:block;
+	float:left;
+}
+.query_text{
+	border:#7B9EBD 1px solid;
+	background:#fff url(images/search.png) right no-repeat;
+	width:250px;
+	height:22px;
+}
+/*******form_content***********/
+.easyui_btn{padding-left: 10px;}
+.form_query{
+	overflow: hidden;
+}
+.tick_img{
+	margin-bottom:-3px;
+}
+input.DataTimePicker{
+	background:#fff url(../datePicker/datePicker.gif) no-repeat right;
+}
+input.DivWindow_icon{
+	background:#fff  url(../images/input-pop.png) no-repeat right;
+}
+.input_width{
+	width:150px;
+}
+.input_widthIn{ 
+	width:200px;
+}
+.input_widthLong{
+	width:250px;
+}
+.textarea_width{
+	height:60px;
+	width:250px;
+}
+.mianboder{
+	margin:5px;
+	padding:10px; 
+	border:0px;
+	border-top:1px solid #DDDDDD;
+}
+.mianboder span{
+	padding:0px 5px;
+}
+/*******baocuo***********/
+#baocuo_contain{
+	position:absolute;
+	width:675px; 
+	height:313px; 
+	top:50%;
+	left:50%;
+	z-index:100;
+	margin-left:-335px;
+	margin-top:-190px; 
+	background:url(../images/baocuo_text.png) no-repeat;
+}
+.baocuo_contain_text{ 
+	width:320px;
+	margin:40px 0px 0px 320px;
+}
+.baocuo_h1{
+	font-size:35px; 
+	color:#F00;
+	font-weight:bold;
+}
+.baocuo_h2{
+	font-size:20px;
+	line-height:200%;
+}
+/*******content***********/
+.content_left{
+	width:30%;
+	float:left;
+}
+.content_box{
+	padding:10px;
+}
+
+.content_right{
+	width:69%;
+	float:right;
+}
+.content_border{
+	border:1px #aecbd4 solid;
+}
+.content_fieldset{
+	border:1px #aecbd4 solid;
+}
+.content_legend{
+	background:url(../images/nav/stack.png) left no-repeat;
+	 margin-left:10px;
+	 padding:0px 5px 0px 15px;
+	 text-indent:5px;
+}
+.content_legend img{
+	padding:0px 5px;
+	margin-bottom:2px;
+}
+/*******pop window***********/
+.window_search{
+	padding:5px 10px;
+	border-bottom:1px dotted #BBDAE6;
+	
+}
+/*选择框的样式，文本框内有一个搜索的图片*/
+.input-pop{
+	background: url("../js/easyui/themes/icons/search.png") no-repeat scroll right center #fff;
+    margin-right: 0;
+}
+	

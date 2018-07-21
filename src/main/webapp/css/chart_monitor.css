@@ -1,0 +1,224 @@
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-size: 12px;
+    font-family: "微软雅黑", "宋体", Arial;
+    color: #666;
+}
+a {
+    outline-style: none;
+    color: #535353;
+    text-decoration: none;
+    cursor: pointer;
+}
+ul{
+	margin:0;
+}
+.nav{
+	margin:20px 0;
+}
+.nav a{
+	background:#f7f7f7;
+	margin-right:15px;
+	padding:5px 10px;
+	border:1px solid #dddddd;
+}
+.nav a.active{
+	background:#3590f6;
+	border:1px solid #3590f6;
+	color:#fff;
+}
+.col-xs-3 .nav a.active{
+	margin: 0;
+}
+.col-xs-3 .nav {
+	text-align:right;
+}
+.tips{
+	float:right;
+}
+.tips span{
+	margin-left:25px;
+	float: left;
+}
+.tips span i{
+	height:14px;
+	width:14px;
+	background:#22b14c;
+	float: left;
+	margin-right:3px;
+	border-radius: 3px;
+}
+.tips span i.cscl{
+	background:#dfba1b;
+}
+.tips span i.cscl2{
+	background:#fb7537;
+}
+.table {
+    width: 100%;
+    display: table;
+	border-collapse:collapse;
+}
+/*.col-xs-3 {
+    width: 30%;
+    float: left;
+}
+.col-xs-6 {
+    width: 68%;
+    float: left;
+}*/
+
+#main_content{width:68%;float: left;} 
+#right_side{float:right;width:30%;margin-right:2%;}
+#pie_chart_box,#ring_chart_box,#pie_chart_box_manufacturer,#mfsttoday_box{margin-left: 15px; height:270px;position: relative; border: 1px solid #ddd;clear:both;overflow:hidden}
+
+.admin-info {
+    margin-left: 15px;
+    position: relative;
+    border: 1px solid #ddd;
+}
+.title-name {
+    font-size: 14px;
+    padding: 0 15px;
+    border-bottom: 1px solid #ddd;
+    height: 40px;
+    line-height: 40px;
+}
+.record-list {
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+.record-list {
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+	border-collapse:collapse;
+    font-size: 12px;
+}
+.title-name a {
+    float: right;
+    font-size: 14px;
+    color: #999;
+}
+.title-name span{
+	margin-left:25px;
+}
+.title-name span em{
+	color:#ff503f;
+	font-style: normal;
+	margin-right:3px;
+}
+.record-list tr td {
+    padding: 5px 10px;
+    line-height: 23px;
+    border-top: 1px solid #d9d9d9;
+    color: #666;
+}
+.frame {
+    position: relative;
+    border: 1px solid #ddd;
+	border-top:3px solid #d65b5d;
+}
+.table tbody tr td {
+    padding: 5px 10px;
+    line-height: 23px;
+    vertical-align: middle;
+    border-top: 1px solid #d9d9d9;
+    color: #666;
+    text-align: center;
+}
+.table-list thead,.record-list thead{
+    background: #fbfbfb;
+    line-height: 30px;
+}
+.nav-justified>li {
+    display: table-cell;
+    width: 1%;
+	position: relative;
+	background: #23a123;
+	color:#fff;
+}
+.step-arrow{
+	margin:5px;
+}
+.step-arrow li.active{
+    background-color: #FA7537;
+    color: #ffffff;
+}
+.step-arrow li.active1{
+    background-color: #FF0000;
+    color: #ffffff;
+}
+.step-arrow li.active2{
+    background-color: #afafaf;
+    color: #ffffff;
+}
+.step-arrow li.active3{
+    background-color: #22B14C;
+    color: #ffffff;
+}
+.step-arrow li:before {
+    position: absolute;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 20px;
+    left: 3rem;
+    font-weight: bold;
+    font-size: 1rem;
+    overflow: hidden;
+    top: 10px;
+    background: #23a123;
+    color: #ffffff;
+}
+.step-arrow li:after {
+    position: absolute;
+    top: -1px;
+    right: -10px;
+    width: 23px;
+    height: 23px;
+    transform: scale(0.707) rotate(45deg);
+    z-index: 1;
+    background-color: #23a123;
+    border-radius: 0 5px 0 50px;
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    box-sizing: content-box;
+	content: "";
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+.step-arrow li.active:after {
+    background-color: #FA7537;
+}
+.step-arrow li.active1:after {
+    background-color: #FF0000;
+}
+.step-arrow li.active2:after {
+    background-color: #afafaf;
+}
+.step-arrow li.active3:after {
+    background-color: #22B14C;
+}
+.step-arrow li:last-child:after {
+	display:none;
+}
+
+.frame2 {
+    position: relative;
+    border: 1px solid #ddd;
+    border-top: 3px solid #308dd5;
+	margin-top:15px;
+}
+
+th {
+    text-align: center;
+}
