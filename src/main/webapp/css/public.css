@@ -6,7 +6,7 @@ body{
 	margin:0;
 	padding:0;
 	font-size:12px;
-	font-family:"ËÎÌå","arial";
+	font-family:"ï¿½ï¿½ï¿½ï¿½","arial";
 	font-size-adjust:none;
 	line-height:150%;
 }
@@ -225,9 +225,9 @@ table.table_info td{
 	background:url(images/information_title_bj.png) bottom repeat-x;
 	font-weight:500;
 }
-table.table_info img{
+/* table.table_info img{
 	margin:0px 3px -3px 3px;
-}
+} */
 .table_info_bg{
 	background:#F8FBFE;text-align:right;
 }
@@ -264,7 +264,7 @@ table.dottedAdd_line td{
 	border:1px dotted #BBDAE6;
 }
 table.dottedAdd_line td:hover, table.dottedAdd_line td.altrow{ 
-	background-color:#fffdec; /* ¶¯Ì¬±äÉ« */
+	background-color:#fffdec; /* ï¿½ï¿½Ì¬ï¿½ï¿½É« */
 }
 /*******table***********/
 table.table_search{
@@ -549,7 +549,7 @@ input.DivWindow_icon{
 	border-bottom:1px dotted #BBDAE6;
 	
 }
-/*Ñ¡Ôñ¿òµÄÑùÊ½£¬ÎÄ±¾¿òÄÚÓÐÒ»¸öËÑË÷µÄÍ¼Æ¬*/
+/*Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬*/
 .input-pop{
 	background: url("../js/easyui/themes/icons/search.png") no-repeat scroll right center #fff;
     margin-right: 0;

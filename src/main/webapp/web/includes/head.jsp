@@ -18,7 +18,10 @@ var ctx="${ctx}";//定义全局变量
 <link rel="stylesheet" type="text/css" href="${ctx}/css/public.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/icon.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/js/ztree/css/zTreeStyle/zTreeStyle.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/js/webuploader/css/style.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/js/webuploader/css/webuploader.css" />
 <script type="text/javascript" src="${ctx }/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/webuploader/js/webuploader.js"></script>
 <script type="text/javascript" src="${ctx }/js/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${ctx }/js/jquery.form.js"></script>
 <script type="text/javascript" src="${ctx }/js/easyui/easyui-lang-zh_CN.js"></script> 

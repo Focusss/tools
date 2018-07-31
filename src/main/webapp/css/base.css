@@ -53,7 +53,7 @@ cursor: pointer;
 
 .table_info{width:95%;font-size:12px;border-collapse:collapse;border:1px solid #C1D6F0;color:#000; margin:10px 0px 10px 10px;}
 .table_info td,table.table_info th  {padding:4px;border: 1px dotted #C1D6F0;}
-.table_info img{margin:0px 3px -3px 3px;}
+/* .table_info img{margin:0px 3px -3px 3px;} */
 .table_info_label{background:#F4F9FF;text-align:right;width:120px;line-height: 22px}
 .table_info_title{background:#EDF4FF;}
 .table_info td:hover,table.table_info td.altrow{ background-color:#FFFBE8; /* 动态变色 */}
