@@ -4,13 +4,13 @@ var flag = true;
             var options = { 
 				dataType:'json',
 				beforeSubmit:function(formData,jqForm,options){
-					Common.showLoading('正在检查数据中...');
+					//Common.showLoading('正在检查数据中...');
 	            },
 	          	beforeSend:function(a,b,c){
-	        	  	Common.showLoading('正在保存数据中...');
+	        	  	//Common.showLoading('正在保存数据中...');
 	          	},
 	          	complete:function(){
-	        	  	Common.hideLoading();
+	        	  	//Common.hideLoading();
 	          	},
 			    success:callbackmethod
 			}; 
@@ -23,6 +23,17 @@ var flag = true;
 							return;
 						}
 						flag = false;
+						
+						var fileNames = '';
+						$('ul>li').each(function(){
+							
+							if(fileNames == ''){
+								fileNames = $(this).attr("name");
+							}else{
+								fileNames = fileNames + "," + $(this).attr("name");
+							}
+						});
+						$('#fileNames').val(fileNames);
 						$(form).ajaxSubmit(options);
 					}
 				}
@@ -35,9 +46,7 @@ var flag = true;
 	//回调方法
 	function callbackmethod(data){ 
 			if(data.status=='success'){
-				$.messager.alert('提示',data.msg,'info',function(){
-					
-				});
+			     window.location.href = ctx + '/fileUpload/download.do?fileName='+data.msg;
 		 	}else{
 		 		$.messager.alert('提示',data.msg,'error');
 		 		flag = true;

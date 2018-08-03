@@ -29,6 +29,10 @@ import com.lowagie.text.pdf.PdfReader;
 import com.lowagie.text.pdf.PdfStamper;
 import com.lowagie.text.pdf.PdfWriter;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+
 public class PDFUtil extends PdfPageEventHelper {
 	
 	public static void main(String[] args) {
@@ -42,7 +46,7 @@ public class PDFUtil extends PdfPageEventHelper {
 	 * @throws Exception
 	 * @return 电子工单路径（加水印）
 	 */
-	public static String createPDF(String directoryPath,String fileName)throws Exception {
+	public static String createPDF(String directoryPath,String fileName,JSONObject data)throws Exception {
 		File dirFile = new File(directoryPath); 
 		if(!dirFile.exists()){
 			dirFile.mkdirs();
@@ -94,7 +98,7 @@ public class PDFUtil extends PdfPageEventHelper {
 		table.addCell(cell);
 
 		
-		cell = new PdfPCell(new Phrase("客户名称：", textFont));
+		cell = new PdfPCell(new Phrase("出卖人", textFont));
 		cell.setBorder(Rectangle.NO_BORDER);
 		cell.setCellEvent(cellBottom);
 		cell.setMinimumHeight(30); // 设置单元格高度
@@ -102,30 +106,30 @@ public class PDFUtil extends PdfPageEventHelper {
 		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("建设银行", textFont)); //客户名称
+		cell = new PdfPCell(new Phrase(data.getString("saleManName"), textFont)); //客户名称
+		cell.setBorder(Rectangle.NO_BORDER);
+		cell.setCellEvent(cellBottom);
+		cell.setUseAscender(true); // 设置可以居中
+		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
+		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+		cell.setColspan(3);
+		table.addCell(cell);
 		
+		cell = new PdfPCell(new Phrase("法定代表人：", textFont)); 
+		cell.setBorder(Rectangle.NO_BORDER);
+		cell.setCellEvent(cellBottom);
+		cell.setUseAscender(true); // 设置可以居中
+		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
+		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+		table.addCell(cell);
+		cell = new PdfPCell(new Phrase(data.getString("saleLegalMan"), textFont)); //工单号
 		cell.setBorder(Rectangle.NO_BORDER);
 		cell.setCellEvent(cellBottom);
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("工单号：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER);
-		cell.setCellEvent(cellBottom);
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123456", textFont)); //工单号
-		cell.setBorder(Rectangle.NO_BORDER);
-		cell.setCellEvent(cellBottom);
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		cell = new PdfPCell(new Phrase("设备序列号：", textFont));
+		cell = new PdfPCell(new Phrase("联系人电话 ：", textFont));
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setMinimumHeight(30); // 设置单元格高度
@@ -133,21 +137,7 @@ public class PDFUtil extends PdfPageEventHelper {
 		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("1234", textFont)); //设备序列号
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("设备型号：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //设备型号
+		cell = new PdfPCell(new Phrase(data.getString("saleLegalManTel"), textFont)); //设备序列号
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
@@ -155,7 +145,21 @@ public class PDFUtil extends PdfPageEventHelper {
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
 		
-		cell = new PdfPCell(new Phrase("终端编号：", textFont));
+		cell = new PdfPCell(new Phrase("注册地址：", textFont)); 
+		cell.setBorder(Rectangle.NO_BORDER); //去除边框
+		cell.setCellEvent(cellBottom); //增加底部虚线
+		cell.setUseAscender(true); // 设置可以居中
+		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
+		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+		table.addCell(cell);
+		cell = new PdfPCell(new Phrase(data.getString("saleRegisterAdr"), textFont)); //设备型号
+		cell.setBorder(Rectangle.NO_BORDER); //去除边框
+		cell.setCellEvent(cellBottom); //增加底部虚线
+		cell.setUseAscender(true); // 设置可以居中
+		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
+		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+		table.addCell(cell);
+		cell = new PdfPCell(new Phrase("邮政编码：", textFont));
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setMinimumHeight(30); // 设置单元格高度
@@ -163,30 +167,34 @@ public class PDFUtil extends PdfPageEventHelper {
 		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //终端编号
+		cell = new PdfPCell(new Phrase(data.getString("salePostalCode"), textFont)); //终端编号
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("服务商：", textFont)); 
+		
+		
+		cell = new PdfPCell(new Phrase("营业执照号码：", textFont)); 
+		cell.setMinimumHeight(30); // 设置单元格高度
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("广电银通", textFont)); //服务商
+		cell = new PdfPCell(new Phrase(data.getString("businessLicense"), textFont)); //服务商
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+		cell.setColspan(3);
 		table.addCell(cell);
 		
 		
-		cell = new PdfPCell(new Phrase("设备类型：", textFont));
+		cell = new PdfPCell(new Phrase("开户行：", textFont));
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setMinimumHeight(30); // 设置单元格高度
@@ -194,21 +202,21 @@ public class PDFUtil extends PdfPageEventHelper {
 		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //设备类型
+		cell = new PdfPCell(new Phrase(data.getString("bank"), textFont)); //设备类型
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("任务来源：", textFont)); 
+		cell = new PdfPCell(new Phrase("账号：", textFont)); 
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //任务来源
+		cell = new PdfPCell(new Phrase(data.getString("account"), textFont)); //任务来源
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setCellEvent(cellBottom); //增加底部虚线
 		cell.setUseAscender(true); // 设置可以居中
@@ -216,259 +224,36 @@ public class PDFUtil extends PdfPageEventHelper {
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
 		table.addCell(cell);
 		
-		
-		cell = new PdfPCell(new Phrase("报修时间：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //报修时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("预约时间：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //预约时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		
-		cell = new PdfPCell(new Phrase("客户联系人：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //客户联系人
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("客户联系人电话：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //客户联系人电话
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		
-		cell = new PdfPCell(new Phrase("网点名称：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("1233", textFont)); //网点名称
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("安装地址：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("12321", textFont)); //安装地址
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		
-		cell = new PdfPCell(new Phrase("工程师：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("1232", textFont)); //工程师
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("工程师电话：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("1232", textFont)); //工程师电话
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		
-		cell = new PdfPCell(new Phrase("接受时间：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("12321", textFont)); //接受时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("出发时间：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123213", textFont)); //出发时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		
-		cell = new PdfPCell(new Phrase("到达现场时间：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("12321", textFont)); //到达现场时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("工作开始时间：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("232", textFont)); //工作开始时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		
-		
-		cell = new PdfPCell(new Phrase("工作完成时间：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123213", textFont)); //工作完成时间
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("总耗时：", textFont)); 
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont)); //总耗时
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setCellEvent(cellBottom); //增加底部虚线
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
 		/*******基本信息*****/
 		
 		/******客户签名*****/
-		cell = new PdfPCell(new Phrase("客户签名：", textFont));
+		cell = new PdfPCell(new Phrase("房屋照片：", textFont));
 		cell.setBorder(Rectangle.NO_BORDER); //去除边框
 		cell.setMinimumHeight(30); // 设置单元格高度
 		cell.setUseAscender(true); // 设置可以居中
 		cell.setHorizontalAlignment(Cell.ALIGN_LEFT); // 设置水平居中
 		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+		cell.setColspan(4);
 		table.addCell(cell);
 		//客户签名图片
 		
-		cell = new PdfPCell(new Phrase("", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setMinimumHeight(140); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		byte[] bt = FileUtils.readFileToByteArray(new File("G:\\tools\\201807\\201807191550155040.jpeg"));
-		cell.setImage(Image.getInstance(bt));//插入图片
+		JSONArray jsonArray = data.getJSONArray("images");
+		for(int i = 0 ; i < jsonArray.size() ; i ++){
+			JSONObject obj = (JSONObject) jsonArray.get(i);
+			cell = new PdfPCell(new Phrase("", textFont));
+			cell.setBorder(Rectangle.NO_BORDER); //去除边框
+			cell.setMinimumHeight(140); // 设置单元格高度
+			cell.setUseAscender(true); // 设置可以居中
+			cell.setColspan(4);
+			cell.setHorizontalAlignment(Cell.ALIGN_CENTER); // 设置水平居中
+			cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
+			byte[] bt = FileUtils.readFileToByteArray(new File(obj.getString("url")));
+			cell.setImage(Image.getInstance(bt));//插入图片
+			table.addCell(cell);
+		}
 		
-		table.addCell(cell);
 		
-		cell = new PdfPCell(new Phrase("提交日期：", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_RIGHT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
-		cell = new PdfPCell(new Phrase("123", textFont));
-		cell.setBorder(Rectangle.NO_BORDER); //去除边框
-		cell.setMinimumHeight(30); // 设置单元格高度
-		cell.setUseAscender(true); // 设置可以居中
-		cell.setHorizontalAlignment(Cell.ALIGN_LEFT); // 设置水平居中
-		cell.setVerticalAlignment(Cell.ALIGN_MIDDLE); // 设置垂直居中
-		table.addCell(cell);
+		
 		/******客户签名*****/
 		doc.add(table);
 		doc.close();

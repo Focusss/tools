@@ -9,9 +9,10 @@
 <body class="easyui-layout">
 	 <div data-options="region:'center',border:false" style="padding:0px;overflow:hidden">
 	 	 <form  id="form" method="post" action="${ctx}/pdf/generatePDF.do">
+	 	     <input type="hidden" name="fileNames" id="fileNames"  /> 
      		 <table width="100%" class='table_info'>
 				 <tr>	
-				 	 <td width="20%" align="right">出卖人</td>
+				 	 <td width="20%" align="right">出卖人 ：</td>
 	                 <td width="30%" align="left" colspan="3">
                  	 	<input type="text" name="saleManName" id="saleManName" style="width:150px" /> 
 					 </td>
@@ -54,7 +55,7 @@
 					 </td>	
 				 </tr>
 				 <tr>	
-					<td width="20%" align="right">房屋图片：</td>
+					<td width="20%" align="right" valign="center">房屋图片：</td>
 					<td width="70%" align="left" colspan="3">
 						    <div class="page-container">
 								<div id="uploader" class="wu-example">
@@ -96,11 +97,11 @@
 			wrapId: 'uploader', //必填
 		},
 		//处理客户端新文件上传时，需要调用后台处理的地址, 必填
-		uploadUrl: 'fileupload.php',
+		uploadUrl: ctx+'/fileUpload/upload.do',
 		//处理客户端原有文件更新时的后台处理地址，必填
-		updateUrl: 'fileupdate.php',
+		updateUrl: ctx+'/fileUpload/update.do',
 		//当客户端原有文件删除时的后台处理地址，必填
-		removeUrl: 'filedel.php',
+		removeUrl: ctx+'/fileUpload/remove.do',
 		//初始化客户端上传文件，从后台获取文件的地址, 可选，当此参数为空时，默认已上传的文件为空
 		//initUrl: 'fileinit.php',
 	}

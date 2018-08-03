@@ -136,11 +136,20 @@ jQuery(function(){
     //删除服务端附件
     function removeServerFile( file ){
         $.ajax({
-            type:'get',
+            type:'post',
             url: window.webuploader.removeUrl,
-            data:{id:file.name},
+            data:{fileName:file.newName},
             dataType:'json',
             success:function(data){
+            	var $li = $('#'+file.id);
+                delete percentages[ file.id ];
+                updateTotalProgress();
+                $li.off().find('.file-panel').off().end().remove();
+                //按钮
+                $upload.removeClass('disabled');
+                setState('ready');
+            	
+                $('#'+file.id).remove();
                 fileCount--;
                 updateStatus();
             }
@@ -317,10 +326,17 @@ jQuery(function(){
 
     //删除webupload中的图片
     function removeFile( file ){
-        var $li = $('#'+file.id);
-        delete percentages[ file.id ];
-        updateTotalProgress();
-        $li.off().find('.file-panel').off().end().remove();
+    	if(file.src == 'client'){
+    	    var $li = $('#'+file.id);
+            delete percentages[ file.id ];
+            updateTotalProgress();
+            $li.off().find('.file-panel').off().end().remove();
+            //按钮
+            $upload.removeClass('disabled');
+            setState('ready');
+    	}else if(file.src == 'server'){
+        	  removeServerFile( file );
+        }
     }
 
     //更新webuploader中图片上传的进度
@@ -469,8 +485,15 @@ jQuery(function(){
         updateTotalProgress();
     });
 
-    uploader.on('uploadSuccess', function(file){
-        $('#' + file.id ).find('p.state').text('已上传');
+    uploader.on('uploadSuccess', function(file,response){
+    	var result = eval("("+response._raw+")");
+        if(result.status == 'success'){
+        	 file.src='server';
+        	 file.newName = result.msg;
+        	 $('#'+file.id).attr('data-src',file.src);
+        	 $('#'+file.id).attr('name',file.newName);
+        	 $('#' + file.id ).find('p.state').text('已上传');
+        }
     });
 
     uploader.on('uploadError', function(file){
