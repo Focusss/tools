@@ -24,6 +24,7 @@
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/web/" mapping="/web/**" />
+	<mvc:resources location="/swf/" mapping="/swf/**" />
 	<mvc:resources location="/" mapping="/**.txt" />
 
 	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html) -->

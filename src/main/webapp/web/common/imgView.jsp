@@ -1,6 +1,11 @@
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%
 	String url = request.getParameter("url");
+    String isEncode = request.getParameter("isEncode");
+    if(!"".equals(isEncode)){
+    	url = URLDecoder.decode(url);
+    }
 	java.io.InputStream fis = new java.io.FileInputStream(url);
 	java.io.OutputStream os = response.getOutputStream();
 	try {

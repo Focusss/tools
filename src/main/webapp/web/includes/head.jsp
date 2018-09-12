@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%
 response.addHeader("Cache-control", "No-cache"); 
 response.addDateHeader("Expires", 0); 
