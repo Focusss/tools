@@ -18,7 +18,7 @@
    安装好Apache OpenOffice、swftools软件,并配置好相关环境，启动openoffice才能正常使用。**本项目使用的OpenOffice、swftools环境是Windows**
    安装方式、环境配置及启动过程见[openOffice、swftools安装及环境配置过程](https://focusss.github.io/2018/09/14/openOffice和swftools安装及环境配置过程)
    3. 前端使用uploadify插件进行多文件上传，同时需要浏览器开启**允许flash运行**。	
-![前端正常上传页面](https://github.com/Focusss/tools/tree/master/src/main/webapp/images/screen/upload.png)	
+![前端正常上传页面](https://github.com/Focusss/tools/blob/master/src/main/webapp/images/screen/upload.png)	
    4. 后台主要用到的jar包**jodconverter-2.2.2.jar**(生成pdf文件)、**icepdf-core-6.1.2.jar**(缩略图)
 
 6. 文件预览需要先将文件转换为swf格式，然后利用**flexpaper_flash,js**、**FlexPaperViewer.swf**插件进行预览。  
